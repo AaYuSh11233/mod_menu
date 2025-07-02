@@ -1,0 +1,30 @@
+# Rust build
+/target/
+
+# Cargo package files
+**/*.rs.bk
+Cargo.lock
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Backup and log files
+*.log
+*.tmp
+*.bak
+
+# OneDrive sync files
+*.lnk
+~$*
+
+# Ignore JetBrains IDE workspace files
+*.iml
+
