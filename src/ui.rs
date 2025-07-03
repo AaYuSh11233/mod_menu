@@ -1,4 +1,3 @@
-
 use eframe::egui::{self, Color32, FontData, FontDefinitions, FontFamily, TextEdit, TextStyle};
 use std::collections::VecDeque;
 use std::process::Command;
@@ -89,14 +88,14 @@ impl eframe::App for KaliTerminalApp {
 
             egui::ScrollArea::vertical().stick_to_bottom(true).show(ui, |ui| {
                 // Show the banner as the first line
-                ui.label(egui::RichText::new("┌──(nInjaOS)-[~]").monospace().size(20.0));
+                ui.label(egui::RichText::new("┌──(user@nInjaOS)-[~]").monospace().size(20.0).color(Color32::from_rgb(0xE9, 0x3E, 0xFF)));
                 // Show all output lines
                 for line in &self.output {
-                    ui.label(egui::RichText::new(line).monospace().size(20.0));
+                    ui.label(egui::RichText::new(line).monospace().size(20.0).color(Color32::from_rgb(0xE9, 0x3E, 0xFF)));
                 }
                 // Prompt and input always as the last line
                 ui.horizontal(|ui| {
-                    ui.label(egui::RichText::new("└─$ ").monospace().size(20.0));
+                    ui.label(egui::RichText::new("└─$ ").monospace().size(20.0).color(Color32::from_rgb(0xE9, 0x3E, 0xFF)));
                     let input_width = (self.input.len().max(1) as f32) * 12.0 + 10.0; // estimate width
                     let response = ui.add_sized([
                         input_width,
@@ -111,7 +110,6 @@ impl eframe::App for KaliTerminalApp {
                             .frame(false)
                             .font(egui::FontId::monospace(20.0))
                     );
-                    ui.label(egui::RichText::new("_").monospace().size(20.0));
                     // Handle Enter key and always keep input focused
                     let enter_pressed = ui.input(|i| i.key_pressed(egui::Key::Enter));
                     if enter_pressed && !self.input.trim().is_empty() {
